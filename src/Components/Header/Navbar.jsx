@@ -72,15 +72,14 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link
                     to="/"
-                    className="text-2xl font-bold text-primary cursor-pointer tracking-wide ml-2"
-                >
-                    Top-Flix
+                    className="text-2xl font-bold text-red-600 cursor-pointer tracking-wide ml-2" style={{ fontFamily: "Rancho , cursive" }}
+                >Movies Galaxy
                 </Link>
             </div>
 
             {/* Center Menu - Desktop */}
             <div className="flex-1 justify-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-5 text-lg font-medium items-center">
+                <ul className="menu menu-horizontal px-1 gap-5 text-md font-medium items-center">
                     <li><Link to="/movies">All Movies</Link></li>
                     <li>
                         <details>
