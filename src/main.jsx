@@ -9,6 +9,7 @@ import Root from './Layouts/Root';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Components/HomePage/Home';
 import Profile from './Pages/Profile';
+import Iframe from './Components/Iframe/Iframe';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -19,10 +20,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>
       },
-      // {
-      //   path:,
-      //   element:
-      // },
+      {
+        path: '/iframe',
+        element: <Iframe></Iframe>
+      },
       {
         path: '/profile',
         element: <Profile></Profile>
