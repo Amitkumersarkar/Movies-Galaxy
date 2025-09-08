@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { GiGalaxy } from "react-icons/gi";
 
 const Navbar = () => {
     return (
@@ -72,8 +73,8 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link
                     to="/"
-                    className="text-2xl font-bold text-red-600 cursor-pointer tracking-wide ml-2" style={{ fontFamily: "Rancho , cursive" }}
-                >Movies Galaxy
+                    className="flex items-center gap-2 text-2xl font-bold text-red-600 cursor-pointer tracking-wide ml-2" style={{ fontFamily: "Rancho , cursive" }}
+                ><GiGalaxy /> Movies Galaxy
                 </Link>
             </div>
 
