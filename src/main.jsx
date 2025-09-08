@@ -8,9 +8,10 @@ import {
 import Root from './Layouts/Root';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Components/HomePage/Home';
+import Profile from './Pages/Profile';
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
@@ -18,8 +19,13 @@ const router = createBrowserRouter([
         path: '/home',
         element: <Home></Home>
       },
+      // {
+      //   path:,
+      //   element:
+      // },
       {
-
+        path: '/profile',
+        element: <Profile></Profile>
       }
     ]
   },
