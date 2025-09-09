@@ -3,19 +3,33 @@ import { NavLink } from "react-router-dom";
 
 const AddMovies = () => {
     const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const newMovie = {
+            title: form.title.value,
+            genre: form.genre.value,
+            category: form.category.value,
+            photo: form.photo.value,
+            duration: form.duration.value,
+            year: form.year.value,
+            rating: form.rating.value,
+            summary: form.summary.value,
+        };
+        console.log(newMovie); // send to backend
+    };
 
-    }
     return (
-        <div className=" bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
+        <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
             {/* Back Button */}
             <NavLink to="/profile">
                 <button
-                    className="btn btn-ghost text-xl bg-transparent text-cyan-600 mb-8 flex items-center gap-2"
+                    className="btn btn-ghost text-xl text-cyan-600 mb-8 flex items-center gap-2"
                     style={{ fontFamily: "Rancho, cursive" }}
                 >
-                    <FaArrowLeft />Admin Profile
+                    <FaArrowLeft /> Admin Profile
                 </button>
             </NavLink>
+
             <form
                 onSubmit={handleSubmit}
                 className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md"
@@ -30,6 +44,7 @@ const AddMovies = () => {
                                 type="text"
                                 placeholder="Enter Movie Name"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                required
                             />
                         </div>
 
@@ -38,8 +53,9 @@ const AddMovies = () => {
                             <input
                                 name="genre"
                                 type="text"
-                                placeholder="Enter Movie Genre "
+                                placeholder="Enter Movie Genre"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                required
                             />
                         </div>
 
@@ -50,6 +66,7 @@ const AddMovies = () => {
                                 type="text"
                                 placeholder="Enter Movie Category"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                required
                             />
                         </div>
 
@@ -60,6 +77,7 @@ const AddMovies = () => {
                                 type="text"
                                 placeholder="Enter Movie Photo URL"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                required
                             />
                         </div>
                     </div>
@@ -67,9 +85,9 @@ const AddMovies = () => {
                     {/* Right Column */}
                     <div className="flex flex-col gap-4">
                         <div>
-                            <label className="label text-cyan-500 font-semibold"> Duration</label>
+                            <label className="label text-cyan-500 font-semibold">Duration</label>
                             <input
-                                name=" duration"
+                                name="duration"
                                 type="text"
                                 placeholder="Enter Movie Duration"
                                 className="input input-bordered bg-gray-200 text-black w-full"
@@ -80,9 +98,11 @@ const AddMovies = () => {
                             <label className="label text-cyan-500 font-semibold">Release Year</label>
                             <input
                                 name="year"
-                                type="text"
-                                placeholder="Enter Movie Release Year "
+                                type="number"
+                                placeholder="Enter Release Year"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                min="1900"
+                                max={new Date().getFullYear()}
                             />
                         </div>
 
@@ -90,19 +110,21 @@ const AddMovies = () => {
                             <label className="label text-cyan-500 font-semibold">Rating</label>
                             <input
                                 name="rating"
-                                type="text"
-                                placeholder="Enter Movie Rating"
+                                type="number"
+                                placeholder="Enter Movie Rating (0-10)"
                                 className="input input-bordered bg-gray-200 text-black w-full"
+                                min="0"
+                                max="10"
+                                step="0.1"
                             />
                         </div>
 
                         <div>
                             <label className="label text-cyan-500 font-semibold">Summary</label>
-                            <input
+                            <textarea
                                 name="summary"
-                                type="text"
                                 placeholder="Enter Movie Summary"
-                                className="input input-bordered bg-gray-200 text-black w-full"
+                                className="textarea textarea-bordered bg-gray-200 text-black w-full"
                             />
                         </div>
                     </div>
