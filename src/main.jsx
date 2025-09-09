@@ -8,8 +8,10 @@ import {
 import Root from './Layouts/Root';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Components/HomePage/Home';
-import Profile from './Pages/Profile';
 import Iframe from './Components/Iframe/Iframe';
+import AddMovies from './Pages/AddMovies';
+import AdminProfile from './Pages/AdminProfile';
+import UpdateMovies from './Pages/UpdateMovies';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,7 +28,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <AdminProfile></AdminProfile>
+      },
+      {
+        path: '/addMovies',
+        element: <AddMovies></AddMovies>
+      },
+      {
+        path: '/updateMovies',
+        element: <UpdateMovies></UpdateMovies>
       }
     ]
   },
