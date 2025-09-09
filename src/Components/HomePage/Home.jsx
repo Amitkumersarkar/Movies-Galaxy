@@ -96,6 +96,9 @@ const Home = () => {
                     <FaMeteor />
                 </div>
             </div>
+            <div>
+
+            </div>
         </>
     );
 };
