@@ -3,9 +3,9 @@ import { GiGalaxy } from "react-icons/gi";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-md px-6 sticky top-0 z-50">
+        <div className="navbar bg-base-100 shadow-md px-4 md:px-6 lg:px-8 sticky top-0 z-50">
             {/* Left - Logo + Hamburger */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-3 flex-shrink-0">
                 {/* Mobile Hamburger */}
                 <div className="dropdown lg:hidden">
                     <label tabIndex={0} className="btn btn-ghost">
@@ -32,7 +32,6 @@ const Navbar = () => {
                     >
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/movies">All Movies</Link></li>
-
                         <li>
                             <details>
                                 <summary>Movies</summary>
@@ -44,7 +43,6 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-
                         <li>
                             <details>
                                 <summary>TV Series</summary>
@@ -56,7 +54,6 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-
                         <li>
                             <details>
                                 <summary>Genre</summary>
@@ -75,15 +72,16 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link
                     to="/"
-                    className="flex items-center gap-2 text-2xl font-bold text-red-600 cursor-pointer tracking-wide ml-2"
+                    className="flex items-center gap-2 text-xl md:text-2xl font-bold text-red-600 cursor-pointer tracking-wide"
                     style={{ fontFamily: "Rancho, cursive" }}
                 >
-                    <GiGalaxy /> Movies Galaxy
+                    <GiGalaxy className="text-2xl md:text-3xl" />
+                    <span className="hidden sm:inline">Movies Galaxy</span>
                 </Link>
             </div>
 
             {/* Center Menu - Desktop */}
-            <div className="hidden lg:flex justify-center flex-1">
+            <div className="hidden lg:flex flex-1 justify-center">
                 <ul className="menu menu-horizontal px-1 gap-5 text-md font-medium items-center">
                     <li><Link to="/movies">All Movies</Link></li>
                     <li>
@@ -124,12 +122,12 @@ const Navbar = () => {
             </div>
 
             {/* Right - Search & Profile */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 md:ml-90 flex-shrink-0">
                 {/* Search Bar */}
                 <input
                     type="text"
-                    placeholder="Search Movies..."
-                    className="input input-bordered w-24 sm:w-40 md:w-56 lg:w-64 text-sm"
+                    placeholder="Search..."
+                    className="input input-bordered w-28 sm:w-40 md:w-52 lg:w-64 text-sm"
                 />
 
                 {/* Avatar Dropdown */}
