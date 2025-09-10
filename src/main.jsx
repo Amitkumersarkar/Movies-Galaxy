@@ -1,10 +1,7 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './Layouts/Root';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Components/HomePage/Home';
@@ -15,52 +12,66 @@ import UpdateMovies from './Pages/UpdateMovies';
 import MoviesCard from './Pages/MoviesCard';
 import Customize from './Pages/Customize';
 import Profile from './Pages/Profile';
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home></Home>,
-        loader: () => fetch('http://localhost:4000/movies')
+        element: <Home />,
+        loader: async () => {
+          const res = await fetch('http://localhost:4000/movies');
+          if (!res.ok) throw new Error("Failed to load movies");
+          return res.json();
+        }
       },
       {
         path: '/iframe',
-        element: <Iframe></Iframe>
+        element: <Iframe />
       },
       {
         path: '/dashboard',
-        element: <AdminProfile></AdminProfile>,
-        loader: () => fetch('http://localhost:4000/movies')
-
+        element: <AdminProfile />,
+        loader: async () => {
+          const res = await fetch('http://localhost:4000/movies');
+          if (!res.ok) throw new Error("Failed to load movies");
+          return res.json();
+        }
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <Profile />
       },
       {
         path: '/addMovies',
-        element: <AddMovies></AddMovies>
+        element: <AddMovies />
       },
       {
-        path: '/updateMovies',
-        element: <UpdateMovies></UpdateMovies>
+        path: '/updateMovies/:id',
+        element: <UpdateMovies />,
+        loader: async ({ params }) => {
+          const res = await fetch(`http://localhost:4000/movie/${params.id}`);
+          if (!res.ok) throw new Error("Movie not found");
+          return res.json();
+        }
       },
       {
         path: '/moviesCard',
-        element: <MoviesCard></MoviesCard>
+        element: <MoviesCard />
       },
       {
         path: '/customize',
-        element: <Customize></Customize>
+        element: <Customize />
       }
     ]
   },
 ]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);

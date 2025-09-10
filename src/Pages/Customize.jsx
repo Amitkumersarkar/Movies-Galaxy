@@ -7,7 +7,7 @@ const Customize = ({ movie }) => {
     // Handle Delete
     const handleDelete = async (id) => {
         try {
-            const result = await Swal.fire({
+            const { isConfirmed } = await Swal.fire({
                 title: "Are you sure?",
                 text: "This movie will be permanently deleted!",
                 icon: "warning",
@@ -17,24 +17,39 @@ const Customize = ({ movie }) => {
                 confirmButtonText: "Yes, delete it!"
             });
 
-            if (!result.isConfirmed) return;
+            if (!isConfirmed) return;
 
             const res = await fetch(`http://localhost:4000/movie/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
             });
             const data = await res.json();
 
-            if (data.deletedCount > 0) {
-                await Swal.fire("Deleted!", "Movie has been deleted.", "success");
+            if (data.deletedCount > 0 || data.success) {
+                await Swal.fire({
+                    title: "Deleted!",
+                    text: "Movie has been deleted.",
+                    icon: "success",
+                    timer: 1500,
+                    showConfirmButton: false,
+                    toast: true,
+                    position: "top",
+                });
             } else {
-                await Swal.fire("Error", "Movie was not deleted. Try again.", "error");
+                await Swal.fire({
+                    title: "Error",
+                    text: "Movie was not deleted. Try again.",
+                    icon: "error",
+                });
             }
         } catch (err) {
             console.error(err);
-            await Swal.fire("Error", "Failed to delete movie.", "error");
+            await Swal.fire({
+                title: "Error",
+                text: "Failed to delete movie.",
+                icon: "error",
+            });
         }
     };
-
 
     return (
         <div className="card bg-base-100 w-full sm:w-72 md:w-80 lg:w-96 shadow-md hover:shadow-xl transition duration-300 rounded-xl overflow-hidden border">
@@ -68,7 +83,7 @@ const Customize = ({ movie }) => {
                     <Link to={`/movie/${_id}`} className="btn btn-sm btn-primary rounded-lg">
                         Watch Now
                     </Link>
-                    <Link to={`/movie/${_id}/edit`} className="btn btn-sm btn-warning rounded-lg">
+                    <Link to={`/updateMovies/${_id}`} className="btn btn-sm btn-warning rounded-lg">
                         Modify
                     </Link>
                     <button
