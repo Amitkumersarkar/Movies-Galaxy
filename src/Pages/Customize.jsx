@@ -3,35 +3,39 @@ import Swal from "sweetalert2";
 
 const Customize = ({ movie }) => {
     const { _id, title, genre, category, photo, duration, year, rating, summary } = movie;
+
     // Handle Delete
     const handleDelete = async (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "This movie will be permanently deleted!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    const res = await fetch(`http://localhost:4000/movie/${id}`, {
-                        method: "DELETE"
-                    });
-                    const data = await res.json();
+        try {
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: "This movie will be permanently deleted!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            });
 
-                    if (data.deletedCount > 0) {
-                        Swal.fire("Deleted!", "Movie has been deleted.", "success");
-                        // Remove from UI without reload
-                        setMovies((prev) => prev.filter((m) => m._id !== id));
-                    }
-                } catch (err) {
-                    Swal.fire("Error", "Failed to delete movie.", "error");
-                }
+            if (!result.isConfirmed) return;
+
+            const res = await fetch(`http://localhost:4000/movie/${id}`, {
+                method: "DELETE"
+            });
+            const data = await res.json();
+
+            if (data.deletedCount > 0) {
+                await Swal.fire("Deleted!", "Movie has been deleted.", "success");
+            } else {
+                await Swal.fire("Error", "Movie was not deleted. Try again.", "error");
             }
-        });
+        } catch (err) {
+            console.error(err);
+            await Swal.fire("Error", "Failed to delete movie.", "error");
+        }
     };
+
+
     return (
         <div className="card bg-base-100 w-full sm:w-72 md:w-80 lg:w-96 shadow-md hover:shadow-xl transition duration-300 rounded-xl overflow-hidden border">
             {/* Movie Poster */}
