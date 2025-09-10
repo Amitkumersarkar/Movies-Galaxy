@@ -131,7 +131,7 @@ const Navbar = () => {
                 />
 
                 {/* Avatar Dropdown */}
-                <div className="dropdown  dropdown-end">
+                <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost mb-2 btn-circle avatar">
                         <div className="w-10  rounded-full">
                             <img
@@ -142,9 +142,10 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-lg w-52 gap-2"
+                        className="menu menu-sm dropdown-content mt-3 p-3 shadow text-white font-semibold bg-gray-700 rounded-lg w-52 gap-2"
                     >
                         <li><NavLink to="/profile">Admin Profile</NavLink></li>
+                        <li><NavLink to="/dashboard">Admin Dashboard</NavLink></li>
                         <li><NavLink to="/register">Register</NavLink></li>
                         <li><NavLink to="/login">Log In</NavLink></li>
                     </ul>

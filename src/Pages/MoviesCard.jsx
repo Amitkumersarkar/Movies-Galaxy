@@ -1,5 +1,7 @@
+
+
 const MoviesCard = ({ movies }) => {
-    const { title, genre, category, photo, duration, year, rating, summary } = movies;
+    const { _id, title, genre, category, photo, duration, year, rating, summary } = movies;
 
     return (
         <div className="card bg-base-100 w-full sm:w-72 md:w-80 lg:w-96 shadow-md hover:shadow-xl transition duration-300 rounded-xl overflow-hidden border">

@@ -13,6 +13,8 @@ import AddMovies from './Pages/AddMovies';
 import AdminProfile from './Pages/AdminProfile';
 import UpdateMovies from './Pages/UpdateMovies';
 import MoviesCard from './Pages/MoviesCard';
+import Customize from './Pages/Customize';
+import Profile from './Pages/Profile';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -29,8 +31,14 @@ const router = createBrowserRouter([
         element: <Iframe></Iframe>
       },
       {
+        path: '/dashboard',
+        element: <AdminProfile></AdminProfile>,
+        loader: () => fetch('http://localhost:4000/movies')
+
+      },
+      {
         path: '/profile',
-        element: <AdminProfile></AdminProfile>
+        element: <Profile></Profile>
       },
       {
         path: '/addMovies',
@@ -43,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/moviesCard',
         element: <MoviesCard></MoviesCard>
+      },
+      {
+        path: '/customize',
+        element: <Customize></Customize>
       }
     ]
   },

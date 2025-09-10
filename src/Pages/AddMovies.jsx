@@ -50,12 +50,12 @@ const AddMovies = () => {
     return (
         <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
             {/* Back Button */}
-            <NavLink to="/profile">
+            <NavLink to="/dashboard">
                 <button
                     className="btn btn-ghost text-xl text-cyan-600 mb-8 flex items-center gap-2"
                     style={{ fontFamily: "Rancho, cursive" }}
                 >
-                    <FaArrowLeft /> Admin Profile
+                    <FaArrowLeft /> Admin Dashboard
                 </button>
             </NavLink>
 
