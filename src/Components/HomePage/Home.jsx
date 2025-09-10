@@ -33,6 +33,7 @@ const slides = [
     },
 ];
 
+
 const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -43,6 +44,7 @@ const Home = () => {
         }, 4000);
         return () => clearInterval(interval);
     }, []);
+
 
     return (
         <>

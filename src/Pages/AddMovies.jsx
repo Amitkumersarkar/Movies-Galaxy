@@ -21,7 +21,7 @@ const AddMovies = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newMovie)
+            body: JSON.stringify(newMovie),
         })
             .then(res => res.json())
             .then(data => {
@@ -45,6 +45,7 @@ const AddMovies = () => {
                 })
             });
     }
+
 
     return (
         <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">

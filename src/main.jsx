@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: '/iframe',
@@ -37,7 +37,8 @@ const router = createBrowserRouter([
       {
         path: '/updateMovies',
         element: <UpdateMovies></UpdateMovies>
-      }
+      },
+
     ]
   },
 ]);
