@@ -16,7 +16,8 @@ const AddMovies = () => {
             rating: form.rating.value,
             summary: form.summary.value,
         };
-        console.log(newMovie); // send data to server
+        // send data to server
+        // console.log(newMovie); 
 
         fetch('http://localhost:4000/movie', {
             method: 'POST',
