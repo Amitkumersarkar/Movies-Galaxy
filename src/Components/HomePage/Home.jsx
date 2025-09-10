@@ -100,7 +100,7 @@ const Home = () => {
                     <FaMeteor />
                 </div>
             </div>
-            <div>
+            <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10 ">
                 {
                     loadedMovies.map((movies) => <MoviesCard key={movies._id} movies={movies}></MoviesCard>)
                 }

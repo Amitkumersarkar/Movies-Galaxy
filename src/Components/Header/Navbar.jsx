@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { GiGalaxy } from "react-icons/gi";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-md px-4 md:px-6 lg:px-8 sticky top-0 z-50">
+        <div className="navbar bg-base-100/90 backdrop-blur-md shadow-md px-4 md:px-6 lg:px-8 sticky top-0 z-50">
             {/* Left - Logo + Hamburger */}
             <div className="flex items-center gap-3 flex-shrink-0">
                 {/* Mobile Hamburger */}
@@ -30,16 +30,16 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-lg w-52 gap-2 z-50"
                     >
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/movies">All Movies</Link></li>
+                        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Home</NavLink></li>
+                        <li><NavLink to="/movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
                         <li>
                             <details>
                                 <summary>Movies</summary>
                                 <ul className="p-2 space-y-1 bg-base-100 shadow rounded-lg">
-                                    <li><Link to="/movies/hollywood">Hollywood</Link></li>
-                                    <li><Link to="/movies/bollywood">Bollywood</Link></li>
-                                    <li><Link to="/movies/animation">Animation</Link></li>
-                                    <li><Link to="/movies/tamil">Tamil</Link></li>
+                                    <li><NavLink to="/movies/hollywood">Hollywood</NavLink></li>
+                                    <li><NavLink to="/movies/bollywood">Bollywood</NavLink></li>
+                                    <li><NavLink to="/movies/animation">Animation</NavLink></li>
+                                    <li><NavLink to="/movies/tamil">Tamil</NavLink></li>
                                 </ul>
                             </details>
                         </li>
@@ -47,10 +47,10 @@ const Navbar = () => {
                             <details>
                                 <summary>TV Series</summary>
                                 <ul className="p-2 space-y-1 bg-base-100 shadow rounded-lg">
-                                    <li><Link to="/series/english">English Series</Link></li>
-                                    <li><Link to="/series/hindi">Hindi Series</Link></li>
-                                    <li><Link to="/series/korean">Korean Series</Link></li>
-                                    <li><Link to="/series/bangla">Bangla Series</Link></li>
+                                    <li><NavLink to="/series/english">English Series</NavLink></li>
+                                    <li><NavLink to="/series/hindi">Hindi Series</NavLink></li>
+                                    <li><NavLink to="/series/korean">Korean Series</NavLink></li>
+                                    <li><NavLink to="/series/bangla">Bangla Series</NavLink></li>
                                 </ul>
                             </details>
                         </li>
@@ -58,11 +58,11 @@ const Navbar = () => {
                             <details>
                                 <summary>Genre</summary>
                                 <ul className="p-2 space-y-1 bg-base-100 shadow rounded-lg">
-                                    <li><Link to="/genre/action">Action</Link></li>
-                                    <li><Link to="/genre/adventure">Adventure</Link></li>
-                                    <li><Link to="/genre/comedy">Comedy</Link></li>
-                                    <li><Link to="/genre/crime">Crime</Link></li>
-                                    <li><Link to="/genre/fantasy">Fantasy</Link></li>
+                                    <li><NavLink to="/genre/action">Action</NavLink></li>
+                                    <li><NavLink to="/genre/adventure">Adventure</NavLink></li>
+                                    <li><NavLink to="/genre/comedy">Comedy</NavLink></li>
+                                    <li><NavLink to="/genre/crime">Crime</NavLink></li>
+                                    <li><NavLink to="/genre/fantasy">Fantasy</NavLink></li>
                                 </ul>
                             </details>
                         </li>
@@ -70,28 +70,28 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo */}
-                <Link
+                <NavLink
                     to="/"
                     className="flex items-center gap-2 text-xl md:text-2xl font-bold text-red-600 cursor-pointer tracking-wide"
                     style={{ fontFamily: "Rancho, cursive" }}
                 >
                     <GiGalaxy className="text-2xl md:text-3xl" />
                     <span className="hidden sm:inline">Movies Galaxy</span>
-                </Link>
+                </NavLink>
             </div>
 
             {/* Center Menu - Desktop */}
             <div className="hidden lg:flex flex-1 justify-center">
                 <ul className="menu menu-horizontal px-1 gap-5 text-md font-medium items-center">
-                    <li><Link to="/movies">All Movies</Link></li>
+                    <li><NavLink to="/movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
                     <li>
                         <details>
                             <summary className="hover:text-primary cursor-pointer px-3 py-2">Movies</summary>
                             <ul className="p-3 space-y-2 bg-base-100 shadow-lg rounded-lg min-w-[150px]">
-                                <li><Link to="/movies/hollywood">Hollywood</Link></li>
-                                <li><Link to="/movies/bollywood">Bollywood</Link></li>
-                                <li><Link to="/movies/animation">Animation</Link></li>
-                                <li><Link to="/movies/tamil">Tamil</Link></li>
+                                <li><NavLink to="/movies/hollywood">Hollywood</NavLink></li>
+                                <li><NavLink to="/movies/bollywood">Bollywood</NavLink></li>
+                                <li><NavLink to="/movies/animation">Animation</NavLink></li>
+                                <li><NavLink to="/movies/tamil">Tamil</NavLink></li>
                             </ul>
                         </details>
                     </li>
@@ -99,10 +99,10 @@ const Navbar = () => {
                         <details>
                             <summary className="hover:text-primary cursor-pointer px-3 py-2">TV Series</summary>
                             <ul className="p-3 space-y-2 bg-base-100 shadow-lg rounded-lg min-w-[150px]">
-                                <li><Link to="/series/english">English Series</Link></li>
-                                <li><Link to="/series/hindi">Hindi Series</Link></li>
-                                <li><Link to="/series/korean">Korean Series</Link></li>
-                                <li><Link to="/series/bangla">Bangla Series</Link></li>
+                                <li><NavLink to="/series/english">English Series</NavLink></li>
+                                <li><NavLink to="/series/hindi">Hindi Series</NavLink></li>
+                                <li><NavLink to="/series/korean">Korean Series</NavLink></li>
+                                <li><NavLink to="/series/bangla">Bangla Series</NavLink></li>
                             </ul>
                         </details>
                     </li>
@@ -110,11 +110,11 @@ const Navbar = () => {
                         <details>
                             <summary className="hover:text-primary cursor-pointer px-3 py-2">Genre</summary>
                             <ul className="p-3 space-y-2 bg-base-100 shadow-lg rounded-lg min-w-[150px]">
-                                <li><Link to="/genre/action">Action</Link></li>
-                                <li><Link to="/genre/adventure">Adventure</Link></li>
-                                <li><Link to="/genre/comedy">Comedy</Link></li>
-                                <li><Link to="/genre/crime">Crime</Link></li>
-                                <li><Link to="/genre/fantasy">Fantasy</Link></li>
+                                <li><NavLink to="/genre/action">Action</NavLink></li>
+                                <li><NavLink to="/genre/adventure">Adventure</NavLink></li>
+                                <li><NavLink to="/genre/comedy">Comedy</NavLink></li>
+                                <li><NavLink to="/genre/crime">Crime</NavLink></li>
+                                <li><NavLink to="/genre/fantasy">Fantasy</NavLink></li>
                             </ul>
                         </details>
                     </li>
@@ -122,7 +122,7 @@ const Navbar = () => {
             </div>
 
             {/* Right - Search & Profile */}
-            <div className="flex items-center gap-4 md:ml-90 flex-shrink-0">
+            <div className="flex items-center md:ml-auto gap-4  flex-shrink-0">
                 {/* Search Bar */}
                 <input
                     type="text"
@@ -131,9 +131,9 @@ const Navbar = () => {
                 />
 
                 {/* Avatar Dropdown */}
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
+                <div className="dropdown  dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost mb-2 btn-circle avatar">
+                        <div className="w-10  rounded-full">
                             <img
                                 alt="Profile"
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -144,9 +144,9 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-lg w-52 gap-2"
                     >
-                        <li><Link to="/profile">Admin Profile</Link></li>
-                        <li><Link to="/register">Register</Link></li>
-                        <li><Link to="/login">Log In</Link></li>
+                        <li><NavLink to="/profile">Admin Profile</NavLink></li>
+                        <li><NavLink to="/register">Register</NavLink></li>
+                        <li><NavLink to="/login">Log In</NavLink></li>
                     </ul>
                 </div>
             </div>
