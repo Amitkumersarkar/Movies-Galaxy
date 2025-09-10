@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-
+import Swal from 'sweetalert2'
 const AddMovies = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,8 +15,36 @@ const AddMovies = () => {
             rating: form.rating.value,
             summary: form.summary.value,
         };
-        console.log(newMovie); // send to backend
-    };
+        console.log(newMovie); // send data to server
+        fetch('http://localhost:4000/movie', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newMovie)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Movie added:", data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Movie Added Successfully ',
+                        icon: 'success',
+                        confirmButtonText: 'Cool !'
+                    })
+                }
+            })
+            .catch(err => {
+                console.error(" Error adding movie:", err);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Do you want to continue',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                })
+            });
+    }
 
     return (
         <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
