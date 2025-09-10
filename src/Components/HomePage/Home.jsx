@@ -4,8 +4,9 @@ import card1 from "../../assets/panda.jpeg";
 import card2 from "../../assets/squidgame.jpg";
 import card3 from "../../assets/avatar.jpg";
 import card4 from "../../assets/spiderman.webp";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import { FaMeteor } from "react-icons/fa6";
+import MoviesCard from "../../Pages/MoviesCard";
 const slides = [
     {
         id: 1,
@@ -45,6 +46,7 @@ const Home = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const loadedMovies = useLoaderData();
 
     return (
         <>
@@ -99,7 +101,9 @@ const Home = () => {
                 </div>
             </div>
             <div>
-
+                {
+                    loadedMovies.map((movies) => <MoviesCard key={movies._id} movies={movies}></MoviesCard>)
+                }
             </div>
         </>
     );

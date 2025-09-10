@@ -12,6 +12,7 @@ import Iframe from './Components/Iframe/Iframe';
 import AddMovies from './Pages/AddMovies';
 import AdminProfile from './Pages/AdminProfile';
 import UpdateMovies from './Pages/UpdateMovies';
+import MoviesCard from './Pages/MoviesCard';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+        loader: () => fetch('http://localhost:4000/movies')
       },
       {
         path: '/iframe',
@@ -38,7 +40,10 @@ const router = createBrowserRouter([
         path: '/updateMovies',
         element: <UpdateMovies></UpdateMovies>
       },
-
+      {
+        path: '/moviesCard',
+        element: <MoviesCard></MoviesCard>
+      }
     ]
   },
 ]);
