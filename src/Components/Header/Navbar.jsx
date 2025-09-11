@@ -142,12 +142,12 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 p-3 shadow text-white font-semibold bg-gray-700 rounded-lg w-52 gap-2"
+                        className="menu menu-sm dropdown-content mt-3 p-3 shadow text-white font-semibold bg-base-200 rounded-lg w-52 gap-2"
                     >
                         <li><NavLink to="/profile">Admin Profile</NavLink></li>
                         <li><NavLink to="/dashboard">Admin Dashboard</NavLink></li>
-                        <li><NavLink to="/register">Register</NavLink></li>
-                        <li><NavLink to="/login">Log In</NavLink></li>
+                        <li><NavLink to="/signUp">SignUp</NavLink></li>
+                        <li><NavLink to="/signIn">SignIn</NavLink></li>
                     </ul>
                 </div>
             </div>

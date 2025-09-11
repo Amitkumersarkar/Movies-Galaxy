@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 
 const UpdateMovies = () => {
     const movie = useLoaderData();
-
-    if (!movie) return <p>Loading...</p>; // Prevent crash if loader fails
+    // Prevent crash if loader fails
+    if (!movie) return <p>Loading...</p>;
 
     const { _id, title, genre, category, photo, duration, year, rating, summary } = movie;
 

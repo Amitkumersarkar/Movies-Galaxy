@@ -12,6 +12,8 @@ import UpdateMovies from './Pages/UpdateMovies';
 import MoviesCard from './Pages/MoviesCard';
 import Customize from './Pages/Customize';
 import Profile from './Pages/Profile';
+import SignUp from './Pages/SignUp';
+import SignIn from './Pages/SignIn';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
       {
         path: '/customize',
         element: <Customize />
+      },
+      {
+        path: '/signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/signIn',
+        element: <SignIn></SignIn>
       }
     ]
   },
