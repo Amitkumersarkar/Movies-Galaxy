@@ -14,6 +14,7 @@ import Customize from './Pages/Customize';
 import Profile from './Pages/Profile';
 import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
+import AuthProvider from './Providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
