@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const SignUp = () => {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const { createUser } = useContext(AuthContext);
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // Password Validation Function
@@ -23,7 +23,6 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        // Check password strength
         if (!validatePassword(password)) {
             Swal.fire({
                 icon: "error",
@@ -43,17 +42,13 @@ const SignUp = () => {
                 Swal.fire({
                     icon: "success",
                     title: "Account Created!",
-                    text: "Redirecting to SignIn page...",
+                    text: "Redirecting to Customize page...",
                     showConfirmButton: false,
                     timer: 2000,
                 });
 
                 setLoading(false);
-
-                // Redirect to SignIn after success
-                setTimeout(() => {
-                    navigate("/signIn");
-                }, 2000);
+                setTimeout(() => navigate("/customize"), 2000);
             })
             .catch((error) => {
                 console.log(error.message);
@@ -67,16 +62,36 @@ const SignUp = () => {
             });
     };
 
+    const handleGoogleSignUp = () => {
+        signInWithGoogle()
+            .then(result => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Welcome!",
+                    text: `Signed in as ${result.user.displayName}`,
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+                navigate("/customize");
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Google Sign-In Failed",
+                    text: error.message,
+                    confirmButtonColor: "#2563eb",
+                });
+            });
+    };
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cyan-50 via-white to-cyan-100">
             <div className="card w-full max-w-md bg-white shadow-2xl rounded-2xl p-6">
                 {/* Header */}
                 <div className="text-center mb-6">
-                    <h1 className="text-4xl font-bold font-serif text-blue-600">
-                        Sign Up
-                    </h1>
+                    <h1 className="text-4xl font-bold font-serif text-blue-600">Sign Up</h1>
                     <p className="mt-2 text-gray-500 font-serif text-sm">
-                        Create your account to begin your movie exploration journey with Movies Galaxy.
+                        Create your account to begin your journey.
                     </p>
                 </div>
 
@@ -97,7 +112,6 @@ const SignUp = () => {
                         <input name="email" type="email" placeholder="Enter Your Email" className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400" required />
                     </div>
 
-                    {/* Password Field with Show/Hide */}
                     <div>
                         <label className="block mb-1 text-sm font-semibold text-cyan-600">Password</label>
                         <div className="relative">
@@ -125,6 +139,17 @@ const SignUp = () => {
                         {loading ? "Signing Up..." : "Sign Up"}
                     </button>
                 </form>
+
+                {/* Google Sign Up */}
+                <div className="text-center mt-4">
+                    <p className="text-gray-500 mb-2">Or sign up with</p>
+                    <button
+                        onClick={handleGoogleSignUp}
+                        className="w-full btn bg-red-500 hover:bg-red-700 text-white rounded-xl shadow-md font-serif mt-2"
+                    >
+                        Sign Up with Google
+                    </button>
+                </div>
 
                 {/* Footer */}
                 <p className="text-center mt-4 text-sm text-gray-600">
