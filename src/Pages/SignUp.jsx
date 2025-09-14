@@ -38,6 +38,22 @@ const SignUp = () => {
         createUser(email, password)
             .then((result) => {
                 console.log("User created:", result.user);
+                const newUser = { name, userName, email, createdAt };
+
+                // save new user info to the database
+                fetch('http://localhost:4000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(result.json())
+                    .then(data => {
+                        console.log('user created to firebase', data);
+                        const createdAt = result?.user?.metadata?.creationTime;
+                    })
 
                 Swal.fire({
                     icon: "success",
