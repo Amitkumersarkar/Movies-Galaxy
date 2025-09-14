@@ -19,7 +19,7 @@ const SignIn = () => {
         setLoading(true);
 
         try {
-            const result = await signInUser(name, email, password);
+            const result = await signInUser(email, password);
             const user = result.user;
             console.log("Logged in:", user);
 

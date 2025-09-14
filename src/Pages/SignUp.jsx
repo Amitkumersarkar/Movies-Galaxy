@@ -59,8 +59,6 @@ const SignUp = () => {
                         console.error("DB save failed:", err);
                     })
                     .finally(() => setLoading(false));
-
-
                 Swal.fire({
                     icon: "success",
                     title: "Account Created!",
@@ -68,7 +66,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                setTimeout(() => navigate("/customize"), 2000);
+                setTimeout(() => navigate("/signIn"), 2000);
 
             })
             .catch((error) => {
@@ -94,7 +92,7 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                setTimeout(() => navigate("/customize"), 2000);
+                setTimeout(() => navigate("/signIn"), 2000);
             })
             .catch(error => {
                 Swal.fire({
