@@ -38,33 +38,38 @@ const SignUp = () => {
         createUser(email, password)
             .then((result) => {
                 console.log("User created:", result.user);
+
+                // define createdAt properly
+                const createdAt = result?.user?.metadata?.creationTime;
                 const newUser = { name, userName, email, createdAt };
 
                 // save new user info to the database
-                fetch('http://localhost:4000/users', {
-                    method: 'POST',
+                fetch("http://localhost:4000/users", {
+                    method: "POST",
                     headers: {
-                        'content-type': 'application/json'
-
+                        "content-type": "application/json",
                     },
-                    body: JSON.stringify(newUser)
+                    body: JSON.stringify(newUser),
                 })
-                    .then(result.json())
-                    .then(data => {
-                        console.log('user created to firebase', data);
-                        const createdAt = result?.user?.metadata?.creationTime;
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("user saved to database", data);
                     })
+                    .catch((err) => {
+                        console.error("DB save failed:", err);
+                    })
+                    .finally(() => setLoading(false));
+
 
                 Swal.fire({
                     icon: "success",
                     title: "Account Created!",
-                    text: "Redirecting to Customize page...",
+                    text: `Welcome ${name}! Redirecting to Customize page...`,
                     showConfirmButton: false,
                     timer: 2000,
                 });
-
-                setLoading(false);
                 setTimeout(() => navigate("/customize"), 2000);
+
             })
             .catch((error) => {
                 console.log(error.message);
@@ -76,6 +81,7 @@ const SignUp = () => {
                 });
                 setLoading(false);
             });
+
     };
 
     const handleGoogleSignUp = () => {
@@ -83,12 +89,12 @@ const SignUp = () => {
             .then(result => {
                 Swal.fire({
                     icon: "success",
-                    title: "Welcome!",
-                    text: `Signed in as ${result.user.displayName}`,
+                    title: "Account Created!",
+                    text: `Welcome ${result.user.displayName}! Redirecting to Customize page...`,
                     showConfirmButton: false,
                     timer: 2000,
                 });
-                navigate("/customize");
+                setTimeout(() => navigate("/customize"), 2000);
             })
             .catch(error => {
                 Swal.fire({
