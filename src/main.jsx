@@ -17,6 +17,9 @@ import SignIn from './Pages/SignIn';
 import AuthProvider from './Providers/AuthProvider';
 import ViewMovies from './Pages/ViewMovies';
 import PrivateRoutes from './PrivateRoutes/PrivateRoutes';
+import AboutUs from './Pages/AboutUs';
+import ContactUs from './Pages/ContactUs';
+import NewsPortal from './Pages/NewsPortal';
 
 const router = createBrowserRouter([
   {
@@ -93,6 +96,18 @@ const router = createBrowserRouter([
       {
         path: '/signIn',
         element: <SignIn></SignIn>
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: '/contact-us',
+        element: <ContactUs></ContactUs>
+      },
+      {
+        path: '/news',
+        element: <NewsPortal></NewsPortal>
       }
     ]
   },

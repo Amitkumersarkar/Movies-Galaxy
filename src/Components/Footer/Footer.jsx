@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <footer className="bg-cyan-900 text-white py-10 px-6">
@@ -5,9 +7,9 @@ const Footer = () => {
 
                 {/* Links */}
                 <nav className="flex flex-col md:flex-row gap-4 text-center md:text-left">
-                    <a href="#" className="hover:text-cyan-300 transition-colors">About Us</a>
-                    <a href="#" className="hover:text-cyan-300 transition-colors">Contact</a>
-                    <a href="#" className="hover:text-cyan-300 transition-colors">News Portal</a>
+                    <a className="hover:text-cyan-300 transition-colors"><Link to='/about-us'>About Us</Link> </a>
+                    <a className="hover:text-cyan-300 transition-colors"><Link to='/contact-us'>Contact Us</Link> </a>
+                    <a className="hover:text-cyan-300 transition-colors"><Link to='/news'>News Portal</Link> </a>
                     <a href="#" className="hover:text-cyan-300 transition-colors">FTP Server</a>
                 </nav>
 
