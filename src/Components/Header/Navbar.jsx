@@ -83,7 +83,7 @@ const Navbar = () => {
             {/* Center Menu - Desktop */}
             <div className="hidden lg:flex flex-1 justify-center">
                 <ul className="menu menu-horizontal px-1 gap-5 text-md font-medium items-center">
-                    <li><NavLink to="/movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
+                    <li><NavLink to="/all-movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
                     <li>
                         <details>
                             <summary className="hover:text-primary cursor-pointer px-3 py-2">Movies</summary>

@@ -1,10 +1,11 @@
-import { useLoaderData, NavLink } from "react-router-dom";
+import { useLoaderData, NavLink, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const UpdateMovies = () => {
     const movie = useLoaderData();
-    // Prevent crash if loader fails
+    const navigate = useNavigate();
+
     if (!movie) return <p>Loading...</p>;
 
     const { _id, title, genre, category, photo, duration, year, rating, summary } = movie;
@@ -37,6 +38,10 @@ const UpdateMovies = () => {
                 text: data.message,
                 icon: data.success ? "success" : "error",
                 confirmButtonColor: "#3085d6",
+            }).then(() => {
+                if (data.success) {
+                    navigate("/dashboard");
+                }
             });
         } catch (err) {
             console.log(err);
