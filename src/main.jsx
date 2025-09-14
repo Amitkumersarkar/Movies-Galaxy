@@ -16,6 +16,7 @@ import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
 import AuthProvider from './Providers/AuthProvider';
 import ViewMovies from './Pages/ViewMovies';
+import PrivateRoutes from './PrivateRoutes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard',
-        element: <AdminProfile />,
+        element: (<PrivateRoutes>
+          <AdminProfile />
+        </PrivateRoutes>),
         loader: async () => {
           const res = await fetch('http://localhost:4000/movies');
           if (!res.ok) throw new Error("Failed to load movies");
@@ -56,7 +59,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile />
+        element: (<PrivateRoutes>
+          <Profile></Profile>
+        </PrivateRoutes>)
       },
       {
         path: '/addMovies',
