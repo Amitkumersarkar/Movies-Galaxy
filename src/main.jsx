@@ -67,8 +67,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/customize',
-        element: <Customize />
-      },
+        element: <Customize />,
+
+      }
+      ,
       {
         path: '/signUp',
         element: <SignUp></SignUp>

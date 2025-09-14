@@ -12,13 +12,14 @@ const SignIn = () => {
     const handleSignIn = async (e) => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
 
         setLoading(true);
 
         try {
-            const result = await signInUser(email, password);
+            const result = await signInUser(name, email, password);
             const user = result.user;
             console.log("Logged in:", user);
 
@@ -92,6 +93,18 @@ const SignIn = () => {
                 <form onSubmit={handleSignIn} className="space-y-4">
                     <div>
                         <label className="block mb-1 text-sm font-semibold text-cyan-600">
+                            Name
+                        </label>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Enter Your Name"
+                            className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label className="block mb-1 text-sm font-semibold text-cyan-600">
                             Email
                         </label>
                         <input
@@ -148,7 +161,7 @@ const SignIn = () => {
                 {/* Footer */}
                 <p className="text-center mt-4 text-sm text-gray-600">
                     Don’t have an account?{" "}
-                    <Link to="/signUp" className="text-blue-700 font-semibold hover:underline">
+                    <Link to="/signUp" className="text-blue-700 font-bold hover:underline">
                         SignUp
                     </Link>
                 </p>
