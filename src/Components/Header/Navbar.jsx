@@ -3,7 +3,7 @@ import { GiGalaxy } from "react-icons/gi";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100/90 backdrop-blur-md shadow-md px-4 md:px-6 lg:px-8 sticky top-0 z-50">
+        <div className="navbar bg-base-100/90  backdrop-blur-md shadow-md px-4 md:px-6 lg:px-8 sticky top-0 z-50">
             {/* Left - Logo + Hamburger */}
             <div className="flex items-center gap-3 flex-shrink-0">
                 {/* Mobile Hamburger */}
