@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 
 const MoviesCard = ({ movies }) => {
@@ -33,8 +34,8 @@ const MoviesCard = ({ movies }) => {
 
                 {/* Actions */}
                 <div className="card-actions justify-end mt-4">
-                    <button className="btn btn-sm btn-primary rounded-lg">Watch Now</button>
-                    <button className="btn btn-sm btn-outline rounded-lg">Details</button>
+                    <button className="btn btn-sm btn-primary rounded-lg"><NavLink to='/watchNow'>Watch Now</NavLink> </button>
+                    <button className="btn btn-sm btn-outline rounded-lg"><NavLink to='/Details'>Details</NavLink> </button>
                 </div>
             </div>
         </div>

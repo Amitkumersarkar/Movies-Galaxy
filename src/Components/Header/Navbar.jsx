@@ -31,7 +31,7 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-lg w-52 gap-2 z-50"
                     >
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>Home</NavLink></li>
-                        <li><NavLink to="/movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
+                        <li><NavLink to="/all-movies" className={({ isActive }) => isActive ? "text-red-600 font-bold" : ""}>All Movies</NavLink></li>
                         <li>
                             <details>
                                 <summary>Movies</summary>

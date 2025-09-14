@@ -15,6 +15,7 @@ import Profile from './Pages/Profile';
 import SignUp from './Pages/SignUp';
 import SignIn from './Pages/SignIn';
 import AuthProvider from './Providers/AuthProvider';
+import ViewMovies from './Pages/ViewMovies';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: async () => {
+          const res = await fetch('http://localhost:4000/movies');
+          if (!res.ok) throw new Error("Failed to load movies");
+          return res.json();
+        }
+      },
+      {
+        path: '/all-movies',
+        element: <ViewMovies></ViewMovies>,
         loader: async () => {
           const res = await fetch('http://localhost:4000/movies');
           if (!res.ok) throw new Error("Failed to load movies");
