@@ -51,7 +51,7 @@ const ContactUs = () => {
                     {/* Map */}
                     <div className="w-full h-64 rounded-xl overflow-hidden shadow-md">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902051657348!2d90.39065767496333!3d23.750903384587105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7b14f5f3f6f%3A0x8f2193e20a9db1e!2sBangladesh!5e0!3m2!1sen!2sus!4v1694711536401!5m2!1sen!2sus"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.917235146829!2d90.36001511498165!3d23.81033158456778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7735b8f7f57%3A0x17e1f82fa0c5e8c4!2sMirpur%202%2C%20Dhaka%201212!5e0!3m2!1sen!2sbd!4v1694700000000!5m2!1sen!2sbd"
                             className="w-full h-full border-0"
                             allowFullScreen=""
                             loading="lazy"

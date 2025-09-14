@@ -10,7 +10,7 @@ const NewsPortal = () => {
     const categories = ["All", "Latest", "Trending", "Upcoming"];
 
     useEffect(() => {
-        fetch("http://localhost:4000/news") // Replace with your API
+        fetch("http://localhost:4000/news")
             .then(res => res.json())
             .then(data => {
                 setNews(data);
