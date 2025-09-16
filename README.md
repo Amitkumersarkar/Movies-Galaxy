@@ -61,7 +61,7 @@ Developed by Amit Sarkar 💻
 
 Frontend: [https://movies-galaxy-3c69b.web.app]
 
-Backend: []
+Backend: [https://movies-galaxy-server.vercel.app/]
 
 Database: MongoDB Atlas
 
