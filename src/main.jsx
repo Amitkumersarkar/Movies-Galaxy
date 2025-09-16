@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: async () => {
-          const res = await fetch('https://movies-galaxy-server.vercel.app/movie');
+          const res = await fetch('https://movies-galaxy-server.vercel.app/movies');
           if (!res.ok) throw new Error("Failed to load movies");
           return res.json();
         }
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         path: '/all-movies',
         element: <ViewMovies></ViewMovies>,
         loader: async () => {
-          const res = await fetch('https://movies-galaxy-server.vercel.app/movie');
+          const res = await fetch('https://movies-galaxy-server.vercel.app/movies');
           if (!res.ok) throw new Error("Failed to load movies");
           return res.json();
         }
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
           <AdminProfile />
         </PrivateRoutes>),
         loader: async () => {
-          const res = await fetch('https://movies-galaxy-server.vercel.app/movie');
+          const res = await fetch('https://movies-galaxy-server.vercel.app/movies');
           if (!res.ok) throw new Error("Failed to load movies");
           return res.json();
         }
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
         path: '/updateMovies/:id',
         element: <UpdateMovies />,
         loader: async ({ params }) => {
-          const res = await fetch(`https://movies-galaxy-server.vercel.app/movie/${params.id}`);
+          const res = await fetch(`https://movies-galaxy-server.vercel.app/movies/${params.id}`);
           if (!res.ok) throw new Error("Movie not found");
           return res.json();
         }
