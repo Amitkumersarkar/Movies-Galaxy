@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBGD82YxAc3G9LWsjRHJW1z8opv1dsaWNc",
-    authDomain: "movies-galaxy-3c69b.firebaseapp.com",
-    projectId: "movies-galaxy-3c69b",
-    storageBucket: "movies-galaxy-3c69b.firebasestorage.app",
-    messagingSenderId: "882954098600",
-    appId: "1:882954098600:web:3fa2500a80028123a92f9d"
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
