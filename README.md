@@ -59,7 +59,7 @@ Developed by Amit Sarkar 💻
 
 🌍 Deployment:
 
-Frontend: []
+Frontend: [https://movies-galaxy-3c69b.web.app]
 
 Backend: []
 
