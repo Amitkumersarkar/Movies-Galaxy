@@ -44,7 +44,7 @@ const SignUp = () => {
                 const newUser = { name, userName, email, createdAt };
 
                 // save new user info to the database
-                fetch("http://localhost:4000/users", {
+                fetch("https://movies-galaxy-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",

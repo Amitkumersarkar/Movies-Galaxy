@@ -19,7 +19,7 @@ const AddMovies = () => {
         // send data to server
         // console.log(newMovie); 
 
-        fetch('http://localhost:4000/movie', {
+        fetch('https://movies-galaxy-server.vercel.app/movie', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

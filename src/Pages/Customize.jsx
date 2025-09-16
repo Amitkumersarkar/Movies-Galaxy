@@ -19,7 +19,7 @@ const Customize = ({ movie }) => {
 
             if (!isConfirmed) return;
 
-            const res = await fetch(`http://localhost:4000/movie/${id}`, {
+            const res = await fetch(`https://movies-galaxy-server.vercel.app/movie/${id}`, {
                 method: "DELETE",
             });
             const data = await res.json();

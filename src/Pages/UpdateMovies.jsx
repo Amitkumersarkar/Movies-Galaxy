@@ -26,7 +26,7 @@ const UpdateMovies = () => {
         };
 
         try {
-            const res = await fetch(`http://localhost:4000/movie/${_id}`, {
+            const res = await fetch(`https://movies-galaxy-server.vercel.app/movie/${_id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedMovie),
