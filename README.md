@@ -52,11 +52,18 @@ movies-galaxy/
 ├── .env                    # Environment variables
 ├── package.json
 └── README.md
-)
 
 👨‍💻 Author
 
 Developed by Amit Sarkar 💻
+
+🌍 Deployment:
+
+Frontend: []
+
+Backend: []
+
+Database: MongoDB Atlas
 
 Portfolio: [https://github.com/Amitkumersarkar]
 
