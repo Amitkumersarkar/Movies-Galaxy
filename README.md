@@ -28,7 +28,7 @@ UI Components: React Icons, SweetAlert2
 
 ✅ Responsive Navbar with Search & Navigation
 
-✅ Alert & Confirmation using SweetAlert2
+✅ Alert & Confirmation using SweetAlert2 and React toast message
 
 ✅ Fully Responsive UI
 
