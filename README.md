@@ -1,12 +1,67 @@
-# React + Vite
+🎬 Movies Galaxy – MERN Stack Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movies Galaxy is a full-featured MERN stack web application where users can explore, add, update, and manage movies. It provides authentication, private routes, and CRUD operations with a smooth UI.
 
-Currently, two official plugins are available:
+🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend: React.js, React Router, Tailwind CSS / DaisyUI
 
-## Expanding the ESLint configuration
+Backend: Node.js, Express.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Database: MongoDB 
+
+Authentication: Firebase
+
+UI Components: React Icons, SweetAlert2
+
+✨ Features
+
+✅ User Authentication (Sign Up, Login, Logout)
+
+✅ Add New Movies (title, genre, category, duration, year, rating, summary)
+
+✅ Update / Delete Movies
+
+✅ Private Routes (only logged-in users can add/update movies)
+
+✅ Movie Cards with Poster & Details
+
+✅ Responsive Navbar with Search & Navigation
+
+✅ Alert & Confirmation using SweetAlert2
+
+✅ Fully Responsive UI
+
+📂 Project Structure
+movies-galaxy/
+│
+├── backend/                # Express + MongoDB backend
+│   ├── server.js           # Entry point
+│   ├── routes/             # API routes
+│   ├── models/             # Mongoose schemas
+│   └── controllers/        # Business logic
+│
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Route pages
+│   │   ├── hooks/          # Custom hooks
+│   │   └── context/        # Auth context
+│   └── public/
+│
+├── .env                    # Environment variables
+├── package.json
+└── README.md
+)
+
+👨‍💻 Author
+
+Developed by Amit Sarkar 💻
+
+Portfolio: [https://github.com/Amitkumersarkar]
+
+LinkedIn: [https://www.linkedin.com/in/amit-sarkar-63504b252/]
+
+📝 License
+
+This project is licensed under the MIT License.
