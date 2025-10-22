@@ -5,10 +5,10 @@ const ViewMovies = () => {
     const movies = useLoaderData();
 
     return (
-        <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-10 ">
-            {
-                movies.map((movie) => <AllMoviesCard key={movie._id} movie={movie}></AllMoviesCard>)
-            }
+        <div className="w-11/12 max-w-7xl mx-auto py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {movies.map((movie) => (
+                <AllMoviesCard key={movie._id} movie={movie} />
+            ))}
         </div>
     );
 };

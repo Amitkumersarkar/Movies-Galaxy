@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const AddMovies = () => {
     const handleSubmit = (e) => {
@@ -16,153 +16,36 @@ const AddMovies = () => {
             rating: form.rating.value,
             summary: form.summary.value,
         };
-        // send data to server
-        // console.log(newMovie); 
 
         fetch('https://movies-galaxy-server.vercel.app/movie', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMovie),
         })
-            .then(res => res.json())
             .then(() => {
-                Swal.fire({
-                    title: 'Movie Added Successfully',
-                    icon: 'success',
-                    timer: 1500,
-                    showConfirmButton: false,
-                    toast: true,
-                    position: 'top-center',
-                });
+                Swal.fire({ title: 'Movie Added Successfully', icon: 'success', timer: 1500, showConfirmButton: false, toast: true, position: 'top-center' });
                 form.reset();
             })
-            .catch(err => {
-                console.error("Error adding movie:", err);
-            });
-    }
+            .catch(err => console.error("Error adding movie:", err));
+    };
 
     return (
-        <div className="bg-[#FDF9F4] min-h-screen flex flex-col items-center p-5">
-            {/* Back Button */}
+        <div className="bg-[#FDF9F4] dark:bg-gray-900 min-h-screen flex flex-col items-center p-5">
             <NavLink to="/dashboard">
-                <button
-                    className="btn btn-ghost text-xl text-cyan-600 mb-8 flex items-center gap-2"
-                    style={{ fontFamily: "Rancho, cursive" }}
-                >
+                <button className="btn btn-ghost text-xl text-cyan-600 dark:text-cyan-400 mb-8 flex items-center gap-2" style={{ fontFamily: "Rancho, cursive" }}>
                     <FaArrowLeft /> Admin Dashboard
                 </button>
             </NavLink>
 
-            <form
-                onSubmit={handleSubmit}
-                className="w-full max-w-4xl bg-white p-8 rounded-lg shadow-md"
-            >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Left Column */}
-                    <div className="flex flex-col gap-4">
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Movie Title</label>
-                            <input
-                                name="title"
-                                type="text"
-                                placeholder="Enter Movie Name"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Genre</label>
-                            <input
-                                name="genre"
-                                type="text"
-                                placeholder="Enter Movie Genre"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Category</label>
-                            <input
-                                name="category"
-                                type="text"
-                                placeholder="Enter Movie Category"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Movie Poster</label>
-                            <input
-                                name="photo"
-                                type="text"
-                                placeholder="Enter Movie Photo URL"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="flex flex-col gap-4">
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Duration</label>
-                            <input
-                                name="duration"
-                                type="text"
-                                placeholder="Enter Movie Duration"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Release Year</label>
-                            <input
-                                name="year"
-                                type="number"
-                                placeholder="Enter Release Year"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                min="1900"
-                                max={new Date().getFullYear()}
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Rating</label>
-                            <input
-                                name="rating"
-                                type="number"
-                                placeholder="Enter Movie Rating (0-10)"
-                                className="input input-bordered bg-gray-200 text-black w-full"
-                                min="0"
-                                max="10"
-                                step="0.1"
-                            />
-                        </div>
-
-                        <div>
-                            <label className="label text-cyan-500 font-semibold">Summary</label>
-                            <textarea
-                                name="summary"
-                                placeholder="Enter Movie Summary"
-                                className="textarea textarea-bordered bg-gray-200 text-black w-full"
-                            />
-                        </div>
-                    </div>
+            <form onSubmit={handleSubmit} className="w-full max-w-4xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                <h2 className="text-3xl font-bold mb-6 text-cyan-600 dark:text-cyan-400 font-serif text-center">Add New Movie</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {["title", "genre", "category", "photo", "duration", "year", "rating"].map(field => (
+                        <input key={field} name={field} type="text" placeholder={`Enter ${field.charAt(0).toUpperCase() + field.slice(1)}`} className="input input-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400 dark:bg-gray-700 dark:text-gray-200" required />
+                    ))}
                 </div>
-
-                {/* Submit Button */}
-                <button
-                    type="submit"
-                    className="mt-6 w-full py-3 bg-[#D2B48C] text-[#331A15] text-xl font-semibold rounded-md hover:bg-[#c9a77b] transition-colors"
-                    style={{ fontFamily: "Rancho, cursive" }}
-                >
-                    Add Movie
-                </button>
+                <textarea name="summary" placeholder="Movie Summary" className="textarea textarea-bordered w-full rounded-xl focus:ring-2 focus:ring-cyan-400 dark:bg-gray-700 dark:text-gray-200 mt-4" required></textarea>
+                <button className="btn bg-cyan-600 hover:bg-cyan-800 text-white w-full mt-4 rounded-xl shadow-md font-serif">Add Movie</button>
             </form>
         </div>
     );
